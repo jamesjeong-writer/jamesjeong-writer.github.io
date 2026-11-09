@@ -320,6 +320,7 @@ footer a{color:#E6D2AE}
 </footer>
 
 <script src="content.js"></script>
+<script src="videos-auto.js"></script>
 <script>
 (function(){
   var S = window.SITE, $ = function(id){return document.getElementById(id)};
@@ -366,7 +367,10 @@ footer a{color:#E6D2AE}
   }).join('');
 
   /* 영상 */
-  var vids = S.videos.filter(function(v){return !v.hidden});
+  /* 자동 수집 영상(videos-auto.js)을 최신순으로 앞에 붙임. content.js에 같은 id가 있으면 그쪽 설정(hidden 포함)을 따름 */
+  var manualIds = {}; S.videos.forEach(function(v){manualIds[v.id]=1});
+  var auto = ((window.SITE_AUTO||{}).videos||[]).filter(function(v){return !manualIds[v.id]});
+  var vids = auto.concat(S.videos).filter(function(v){return !v.hidden && v.title});
   var keys = S.channels.filter(function(c){return vids.some(function(v){return v.channel===c.key})});
   $('filters').innerHTML = '<button type="button" aria-pressed="true" data-k="all">전체</button>' + keys.map(function(c){return '<button type="button" aria-pressed="false" data-k="'+c.key+'">'+esc(c.name)+'</button>'}).join('');
   function drawVideos(k){
