@@ -375,9 +375,18 @@ footer a{color:#E6D2AE}
   }).join('');
 
   /* 영상 */
-  var vids = S.videos.filter(function(v){return !v.hidden});
-  var keys = S.channels.filter(function(c){return vids.some(function(v){return v.channel===c.key})});
-  $('filters').innerHTML = '<button type="button" aria-pressed="true" data-k="all">전체</button>' + keys.map(function(c){return '<button type="button" aria-pressed="false" data-k="'+c.key+'">'+esc(c.name)+'</button>'}).join('');
+  /* 깃허브 자동 작업이 만든 videos-auto.json(채널별 최신 영상)을 앞에, content.js의 영상을 뒤에 붙임.
+     content.js에 같은 영상이 있으면 그쪽 제목·hidden이 우선 */
+  var vids = [];
+  function setVideos(auto){
+    var mine = {}, seen = {};
+    S.videos.forEach(function(v){mine[v.id] = v});
+    vids = auto.concat(S.videos).map(function(v){return mine[v.id] ? Object.assign({}, v, mine[v.id]) : v})
+      .filter(function(v){if (seen[v.id] || v.hidden || !v.title) return false; seen[v.id] = 1; return true});
+    var keys = S.channels.filter(function(c){return vids.some(function(v){return v.channel===c.key})});
+    $('filters').innerHTML = '<button type="button" aria-pressed="true" data-k="all">전체</button>' + keys.map(function(c){return '<button type="button" aria-pressed="false" data-k="'+c.key+'">'+esc(c.name)+'</button>'}).join('');
+    drawVideos('all');
+  }
   function drawVideos(k){
     $('vgrid').innerHTML = vids.filter(function(v){return k==='all'||v.channel===k}).map(function(v){
       var c = chMap[v.channel] || {name:''}, url = v.type==='short' ? 'https://www.youtube.com/shorts/'+v.id : 'https://www.youtube.com/watch?v='+v.id;
@@ -385,7 +394,10 @@ footer a{color:#E6D2AE}
         '<div class="meta"><span class="pf">'+(v.type==='short'?'YouTube Shorts':'YouTube')+' · '+esc(c.name)+'</span><h4>'+esc(v.title)+'</h4><a href="'+url+'" target="_blank" rel="noopener" data-track="video-'+v.id+'">원본에서 보기 ↗<span style="position:absolute;left:-9999px">(새 창)</span></a></div></article>';
     }).join('');
   }
-  drawVideos('all');
+  setVideos([]);
+  fetch('videos-auto.json', {cache:'no-store'}).then(function(r){return r.ok ? r.json() : null}).then(function(d){
+    if (d && d.videos && d.videos.length) setVideos(d.videos);
+  }).catch(function(){});
   $('filters').addEventListener('click', function(e){
     var b = e.target.closest('button'); if(!b) return;
     this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed', x===b)});

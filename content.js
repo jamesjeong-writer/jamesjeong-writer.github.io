@@ -5,6 +5,8 @@
   - 영상은 videos 목록에 { id, channel, type } 한 줄을 추가하면 썸네일이 자동으로 붙습니다.
     id = 유튜브 주소의 영상 번호, type = "short"(쇼츠, 세로) 또는 "long"(가로)
   - hidden: true 를 넣으면 지우지 않고 숨길 수 있습니다.
+  - 유튜브 채널마다 최신 쇼츠 3개·가로 영상 3개는 매일 아침 자동으로 videos-auto.json에 들어가 맨 앞에 보입니다.
+    자동으로 들어온 영상을 숨기려면 videos에 { id: "영상번호", hidden: true } 한 줄을 넣으세요.
 */
 window.SITE = {
   siteName: "정이헌의 서재",
