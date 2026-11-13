@@ -169,7 +169,12 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,40px);line-
 @media (max-width:640px){.vgrid{grid-template-columns:repeat(2,1fr);gap:12px}.v,.v.short{grid-column:span 1}.v:not(.short){grid-column:span 2}}
 
 /* 블로그 */
-.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.posts.auto{grid-template-columns:repeat(4,1fr)}
+.subhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:56px 0 18px}
+.subhead h3{font-family:var(--serif);font-weight:600;font-size:24px;margin:0}
+.subhead span{font-size:15px;color:var(--ink-3)}
+.post .dt{font-size:13px;color:var(--ink-3)}
 .post{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .25s,box-shadow .25s}
 .post:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .post .ph{aspect-ratio:4/3;background:var(--bg-2);overflow:hidden}
@@ -184,8 +189,8 @@ h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,4vw,40px);line-
 .blogs a:hover{border-color:var(--gold)}
 .blogs strong{font-family:var(--serif);font-weight:600;font-size:19px;display:block}
 .blogs span{font-size:15px;color:var(--ink-3)}
-@media (max-width:1000px){.posts{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.posts{grid-template-columns:1fr}.blogs{grid-template-columns:1fr}}
+@media (max-width:1000px){.posts,.posts.auto{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.posts,.posts.auto{grid-template-columns:1fr}.blogs{grid-template-columns:1fr}}
 
 /* 인스타 */
 .insta{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:36px;margin-top:72px}
@@ -285,6 +290,10 @@ footer a{color:#E6D2AE}
       <h2 id="blog-h">일상에서 길어 올린 문장들</h2>
       <p class="lead">블로그에 쓴 글 가운데 몇 편을 골랐습니다.</p>
       <div class="posts" id="posts"></div>
+      <div id="autoBlog" hidden>
+        <div class="subhead"><h3>오늘의 가볼각 · 최신 글</h3><span>매일 아침 블로그의 새 글을 자동으로 가져옵니다</span></div>
+        <div class="posts auto" id="autoPosts"></div>
+      </div>
       <div class="blogs" id="blogs"></div>
       <div class="insta" id="insta"></div>
     </div>
@@ -400,6 +409,16 @@ footer a{color:#E6D2AE}
     return '<a class="post" href="'+esc(p.url)+'" target="_blank" rel="noopener" data-track="blog-'+esc(p.url.split('/').pop())+'">'+(p.img?'<div class="ph"><img src="'+p.img+'" alt="'+esc(p.alt||'')+'" loading="lazy"></div>':'')+
       '<div class="bd"><span class="bl">'+esc(p.blog)+'</span><h4>'+esc(p.title)+'</h4><p>'+esc(p.summary)+'</p><span class="rd">글 읽으러 가기 ↗<span style="position:absolute;left:-9999px">(새 창)</span></span></div></a>';
   }).join('');
+  /* 오늘의 가볼각: 깃허브 자동 작업이 만든 gabolgak.json (없거나 못 읽으면 칸을 숨긴 채로 둠) */
+  fetch('gabolgak.json', {cache:'no-store'}).then(function(r){return r.ok ? r.json() : null}).then(function(d){
+    if (!d || !d.posts || !d.posts.length) return;
+    $('autoPosts').innerHTML = d.posts.map(function(p){
+      return '<a class="post" href="'+esc(p.url)+'" target="_blank" rel="noopener" data-track="blog-'+esc(p.url.split('/').pop())+'">'+(p.img?'<div class="ph"><img src="'+esc(p.img)+'" alt="'+esc(p.title)+' 대표 사진" loading="lazy"></div>':'')+
+        '<div class="bd"><span class="bl">'+esc(d.blog)+' · <span class="dt">'+esc(p.date)+'</span></span><h4>'+esc(p.title)+'</h4><p>'+esc(p.summary)+'</p><span class="rd">글 읽으러 가기 ↗<span style="position:absolute;left:-9999px">(새 창)</span></span></div></a>';
+    }).join('');
+    $('autoBlog').hidden = false;
+  }).catch(function(){});
+
   $('blogs').innerHTML = S.blogs.filter(function(b){return b.url}).map(function(b){
     return '<a href="'+esc(b.url)+'" target="_blank" rel="noopener" data-track="blog-home-'+esc(b.name)+'"><span><strong>'+esc(b.name)+'</strong><span>'+esc(b.about)+'</span></span>'+arrow+'<span style="position:absolute;left:-9999px">(새 창)</span></a>';
   }).join('');

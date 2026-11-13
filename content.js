@@ -88,9 +88,10 @@ window.SITE = {
   posts: [
     { blog: "열심히사랑하기", title: "우문우답. 40", summary: "\"나를 죽이지 못한 고통은 나를 더욱더 강하게 만든다.\" 니체의 말이다. 오랜 세월을 살아오면서…", img: "img/blog-223910270779.webp", alt: "턱을 괸 채 생각에 잠긴 니체의 흑백 사진", url: "https://blog.naver.com/mischamaisky/223910270779" },
     { blog: "열심히사랑하기", title: "우문우답. 39", summary: "사거리 건물 2층에 위치하고 있다. 온화한 날씨이다 보니 하루 종일 전면 폴딩 도어를 열어 둔 채 영업을…", img: "img/blog-223879591216.webp", alt: "최후의 심판을 그린 옛 제단화", url: "https://blog.naver.com/mischamaisky/223879591216" },
-    { blog: "열심히사랑하기", title: "우문우답. 37", summary: "시절인연이라는 말이 있다. 만나고 헤어짐이 다 때가 있다는 것으로 풀이할 수 있다…", img: "img/blog-223823889150.webp", alt: "꽃이 만개한 나무 아래 산책길 흑백 사진", url: "https://blog.naver.com/mischamaisky/223823889150" },
-    { blog: "오늘의 가볼각", title: "경북｜11월 6~8일, 구미에서 즐기는 따뜻한 라면 나들이", summary: "익숙한 라면도 여행지에서 만나면 새로운…", img: "img/blog-224462116452.webp", alt: "구미라면축제 안내 그림, 김이 오르는 라면 한 그릇", url: "https://blog.naver.com/thebetterlove/224462116452" }
+    { blog: "열심히사랑하기", title: "우문우답. 37", summary: "시절인연이라는 말이 있다. 만나고 헤어짐이 다 때가 있다는 것으로 풀이할 수 있다…", img: "img/blog-223823889150.webp", alt: "꽃이 만개한 나무 아래 산책길 흑백 사진", url: "https://blog.naver.com/mischamaisky/223823889150" }
   ],
+  /* '오늘의 가볼각' 최신 글은 여기서 고치지 않습니다.
+     깃허브 자동 작업이 매일 아침 6시에 gabolgak.json을 새로 만듭니다. */
 
   insta: [
     { img: "img/insta-1.webp", alt: "인스타그램 릴스 커버, 몸은 안 갔잖아", url: "https://www.instagram.com/jamesjeong_writer/" }
