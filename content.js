@@ -62,7 +62,7 @@ window.SITE = {
     { key: "writer", name: "일상의 변덕을 관통하라", topic: "문학과 인간 심리, 책 이야기", platform: "YouTube", url: "https://www.youtube.com/@jeongiheon-writer", cover: "yt:8Vy5biBazGw" },
     { key: "earth", name: "지구의 미스터리 흔적", topic: "자연과 지형의 신비", platform: "YouTube", url: "https://www.youtube.com/@earthmysterytraces", cover: "yt:7eh5ZOqqKuE" },
     { key: "mood", name: "Mood & Glow", topic: "음악과 편안한 감상", platform: "YouTube", url: "https://www.youtube.com/@moodandglow", cover: "yt:CnnERTdRFxU" },
-    { key: "love", name: "열심히사랑하기", topic: "삶과 사람 이야기", platform: "YouTube", url: "https://www.youtube.com/@삶으로떠오르기", cover: "yt:aTwwm91SwPc" },
+    { key: "love", name: "열심히사랑하기", topic: "삶과 사람 이야기", platform: "YouTube", url: "https://www.youtube.com/@열심히사랑하기", cover: "yt:aTwwm91SwPc" },
     { key: "hodu", name: "우리 마을 이장님은 호두", topic: "애니메이션", platform: "YouTube", url: "https://www.youtube.com/@우리마을이장님은호두", cover: "yt:6ziUXgC6XaU" },
     { key: "insta", name: "인스타그램", topic: "릴스와 이미지", platform: "Instagram", url: "https://www.instagram.com/jamesjeong_writer/", cover: "img/insta-1.webp" }
   ],
