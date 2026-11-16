@@ -19,6 +19,18 @@
       "title": "\"딱 10cm만 넘은 건데 뭐\" — 외도는 이렇게 시작됩니다"
     },
     {
+      "id": "WZuZbVfqzzQ",
+      "channel": "writer",
+      "type": "long",
+      "title": "\"나는 아내를 죽였습니다\" 질투는 어떻게 확신이 되는가 | 톨스토이 《크로이체르 소나타》"
+    },
+    {
+      "id": "5zEp_yTvLQE",
+      "channel": "earth",
+      "type": "short",
+      "title": "세상에, 1,400년 퍼즐을 3D 프린터로? 맞추자 나타난 끝없는 방"
+    },
+    {
       "id": "LXKrZFI3sds",
       "channel": "earth",
       "type": "short",
@@ -31,16 +43,16 @@
       "title": "세상에, 공장 블록이 아니라고? 1,400년 전 볼리비아 푸마푼쿠"
     },
     {
-      "id": "Cw4mYzImzuU",
-      "channel": "earth",
-      "type": "short",
-      "title": "바닷속 거대한 왕의 석상… 그곳에는 도시가 있었다｜헤라클레이온"
-    },
-    {
       "id": "yBFa0kvV9ZA",
       "channel": "earth",
       "type": "long",
       "title": "사막에 이런 곳이? 죽은 나무부터 사하라의 눈까지, 다섯 가지 흔적"
+    },
+    {
+      "id": "0XyCwhxRXWI",
+      "channel": "mood",
+      "type": "short",
+      "title": "오늘도 수고했어요 ☔ 비 오는 강남대로, 피아노·첼로 이중주 아다지오"
     },
     {
       "id": "_ox8d8vdYJs",
@@ -53,12 +65,6 @@
       "channel": "mood",
       "type": "short",
       "title": "오늘도 수고했어요 🌇 한강 노을에 듣는 바이올린 아다지오"
-    },
-    {
-      "id": "-Hzn16-AJd0",
-      "channel": "mood",
-      "type": "short",
-      "title": "오늘도 수고했어요 🌙 비 오는 도시의 밤, 첼로 아다지오"
     },
     {
       "id": "HTjBnZyX_wc",
@@ -79,6 +85,12 @@
       "title": "오늘도 수고했어요, 도시의 밤에 듣는 따뜻한 아다지오 | 라흐마니노프 감성 피아노·첼로 창작 클래식 1시간 · City Night Adagio"
     },
     {
+      "id": "V0phJqY0p7g",
+      "channel": "love",
+      "type": "short",
+      "title": "서부영화 따라 하다 바지 태운 썰"
+    },
+    {
       "id": "aTwwm91SwPc",
       "channel": "love",
       "type": "short",
@@ -91,10 +103,10 @@
       "title": "다른 남자의 아이는 괜찮다면서, 이혼은 안 된다? | 차탈레 부인의 사랑"
     },
     {
-      "id": "GmHnEOR7vuk",
+      "id": "1V-UsXjC9NE",
       "channel": "love",
-      "type": "short",
-      "title": "아내를 되찾으려 수백 리를 걸어온 남자｜나도향 《물레방아》"
+      "type": "long",
+      "title": "\"나는 아내를 죽였습니다\" 질투는 어떻게 확신이 되는가 | 톨스토이 《크로이체르 소나타》"
     },
     {
       "id": "tYYUuJpopHc",
@@ -107,12 +119,6 @@
       "channel": "love",
       "type": "long",
       "title": "가난한 남편을 버리고 지주의 여자가 된 아내｜나도향 《물레방아》｜욕망의 서재"
-    },
-    {
-      "id": "-OrsykZZPwg",
-      "channel": "love",
-      "type": "long",
-      "title": "남편이 있는 여자는 왜 다른 남자를 받아들였을까 | 나도향 《뽕》 | 욕망의 서재"
     },
     {
       "id": "6ziUXgC6XaU",
